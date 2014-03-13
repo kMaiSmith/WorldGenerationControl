@@ -61,9 +61,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 // Plugin *Does not* require craftbukkit, but lighting wont be available
 // otherwise as Bukkit doesn't currently provide the right calls.
 // (Our old method was a hack that relied on CraftBukkit quirks anyway)
-import org.bukkit.craftbukkit.CraftChunk;
+import org.bukkit.craftbukkit.v1_6_R3.CraftChunk;
 // This is used by checkCWTickList to work around a CW bug
-import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.v1_6_R3.CraftWorld;
 
 public class WorldGenerationControl extends JavaPlugin implements Runnable
 {
@@ -582,8 +582,8 @@ public class WorldGenerationControl extends JavaPlugin implements Runnable
                 // initLighting 'resets' the lighting for a chunk, doing fast lighting on everything and marking them all as needing full lighting
                 // Don't do it on chunks without their adjacents loaded, since the h() will then fail to fix them and we're actually breaking
                 // potentially good lighting.
-                
-                net.minecraft.server.Chunk rawchunk = ((CraftChunk)this.chunk).getHandle();
+
+                net.minecraft.server.v1_6_R3.Chunk rawchunk = ((CraftChunk)this.chunk).getHandle();
 
 		// We skip the edge chunks - with overlap=2, they will be a non-edge chunk in at least one region,
 		// where we can also guarantee their peers are loaded for proper loading
